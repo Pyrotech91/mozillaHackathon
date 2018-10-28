@@ -72,9 +72,10 @@ $("scs").addEventListener('click', function () {
 });
 
 
+//forgot to add _choice to the first if statement you had "if (ai <= 0.33) {"
 function ai() {
   var ai_choice = Math.random();
-  if (ai <= 0.33) {
+  if (ai_choice <= 0.33) {
     ai_choice = "R";
   } else if (ai_choice <= 0.66) {
     ai_choice = "P";
@@ -118,10 +119,15 @@ function handleResult() {
       resultDisp(2);
     }
   }
+  //because of mislabled var on line 78 scissors always won. Also forgot to put in what happens with tie
+  //so this was a good choice if you felt down on your luck and wanted a pick-me-up ;) 
+  //went ahead and fixed it
   if (playerSelection == "S") {
     if (aiSelection == "R") {
       // rock wins
       resultDisp(2);
+      } else if (aiSelection == "S") {
+      resultDisp(0);
     } else {
       // scissors wins
       resultDisp(1);;
